@@ -47,7 +47,9 @@ public class HybridKeyExchangeTest extends HttpTestBase {
       Assume.assumeTrue("OpenSSL is not available", false);
       return;
     }
-    System.out.println("OpenSSL available: version=" + OpenSsl.versionString() + " (" + Long.toHexString(OpenSsl.version()) + ")");
+    String version = OpenSsl.versionString();
+    System.out.println("OpenSSL available: version=" + version + " (" + Long.toHexString(OpenSsl.version()) + ")");
+    Assume.assumeFalse("BoringSSL does not support X25519MLKEM768", version.contains("BoringSSL"));
     boolean mlkem;
     try {
       SslContext ctx = SslContextBuilder.forClient()
