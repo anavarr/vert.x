@@ -2,7 +2,7 @@ name: vertx-core (4.x)
 on:
   push:
     branches:
-      - update_
+      - update4_
       - '[0-9]+.[0-9x]+'
   pull_request:
     branches:
