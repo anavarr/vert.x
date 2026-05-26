@@ -483,6 +483,7 @@
               </systemProperties>
               <classpathDependencyExcludes>
                   <classpathDependencyExclude>io.smallrye:smallrye-openssl</classpathDependencyExclude>
+                  <classpathDependencyExclude>io.netty:netty-tcnative-boringssl-static</classpathDependencyExclude>
               </classpathDependencyExcludes>
             </configuration>
           </execution>

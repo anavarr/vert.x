@@ -2,7 +2,7 @@ name: vertx-core (4.x)
 on:
   push:
     branches:
-      - master
+      - update_
       - '[0-9]+.[0-9x]+'
   pull_request:
     branches:
@@ -29,9 +29,10 @@ jobs:
             jdk: 8
             profile: '-PtestDomainSockets'
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container || null }}
     steps:
       - name: Install container dependencies
-        if: ${{ inputs.container != '' }}
+        if: ${{ matrix.container != '' }}
         run: apt-get update && apt-get install -y git maven openssl libssl-dev libapr1t64
       - name: Checkout
         uses: actions/checkout@v2
